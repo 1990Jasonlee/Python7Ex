@@ -92,17 +92,17 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
 
 
 def prompt():
-    mode = input("'Admin' or 'User' ?")
-    if mode.lower() == 'admin':
+    mode = input('1: Admin Mode or 2: User Mode ')
+    if mode == '1':
         admin()
-    elif mode.lower() == 'user':
+    elif mode == '2':
         user()
     else:
         print('Invalid Choice')
 
 def admin():
+    mode2 = input('1: Add Language or 2: Change Language ')
     pass
-
 
 def user():
     print_language_options(lang_dict)
