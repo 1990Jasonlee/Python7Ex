@@ -100,6 +100,7 @@ def prompt():
     else:
         print('Invalid Choice')
 
+
 def admin():
 
     mode2 = input('1: Add Language, 2: Change Language ')
@@ -109,13 +110,17 @@ def admin():
         add_greeting = input('Enter "Hello " in new language')
         new = len(lang_dict) + 1
 
-        new_language = {new:add_language}
-        new_ask = {new:add_ask}
-        new_greeting = {new:add_greeting}
+        new_language = {new: add_language}
+        new_ask = {new: add_ask}
+        new_greeting = {new: add_greeting}
 
         lang_dict.update(new_language)
         name_prompt_dict.update(new_ask)
         greetings_dict.update(new_greeting)
+
+    if mode2 == '2':
+        print(lang_dict)
+        update = (input('Select number for language to update: '))
 
 def user():
     print_language_options(lang_dict)
@@ -128,5 +133,5 @@ def user():
     chosen_name = name_input(selected_prompt)
     greet(chosen_name, greetings_dict, chosen_lang)
 
-print(lang_dict)
+
 prompt()
