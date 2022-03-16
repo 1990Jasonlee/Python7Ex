@@ -3,7 +3,7 @@ from typing import Dict
 # Populate this dictionary with at least two languages.
 # Use integers for keys and strings for values.
 # Example: Key = 1. Value = 'English'.
-lang_dict = {1: 'English\n', 2: 'Spanish\n'
+lang_dict = {1: 'English', 2: 'Spanish'
 }
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
@@ -92,7 +92,7 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
 
 
 def prompt():
-    mode = input('1: Admin Mode or 2: User Mode ')
+    mode = input('1: Admin Mode, 2: User Mode ')
     if mode == '1':
         admin()
     elif mode == '2':
@@ -101,19 +101,21 @@ def prompt():
         print('Invalid Choice')
 
 def admin():
-    mode2 = input('1: Add Language or 2: Change Language ')
-    add_language = input('Enter new language: ')
-    add_ask = input('Enter "What is your name? " in new language: ')
-    add_greeting = input('Enter "Hello " in new language')
-    new = len(lang_dict) + 1
 
-    new_language = {new:add_language}
-    new_ask = {new:add_ask}
-    new_greeting = {new:add_greeting}
+    mode2 = input('1: Add Language, 2: Change Language ')
+    if mode2 == '1':
+        add_language = input('Enter new language: ')
+        add_ask = input('Enter "What is your name? " in new language: ')
+        add_greeting = input('Enter "Hello " in new language')
+        new = len(lang_dict) + 1
 
-    lang_dict.update(new_language)
-    name_prompt_dict.update(new_ask)
-    greetings_dict.update(new_greeting)
+        new_language = {new:add_language}
+        new_ask = {new:add_ask}
+        new_greeting = {new:add_greeting}
+
+        lang_dict.update(new_language)
+        name_prompt_dict.update(new_ask)
+        greetings_dict.update(new_greeting)
 
 def user():
     print_language_options(lang_dict)
@@ -126,4 +128,5 @@ def user():
     chosen_name = name_input(selected_prompt)
     greet(chosen_name, greetings_dict, chosen_lang)
 
+print(lang_dict)
 prompt()
