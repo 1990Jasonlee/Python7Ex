@@ -4,17 +4,17 @@ from typing import Dict
 # Use integers for keys and strings for values.
 # Example: Key = 1. Value = 'English'.
 lang_dict = {1: 'English', 2: 'Spanish'
-}
+             }
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
 # Example: Key = 1. Value = 'What is your name?'.
 name_prompt_dict = {1: 'What is your name?', 2: '¿Cómo te llamas'
-}
+                    }
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
 # Example: Key = 1. Value = 'Hello'.
 greetings_dict = {1: 'Hello', 2: 'Hola'
-}
+                  }
 
 
 def print_language_options(lang_options: Dict[int, str]) -> None:
@@ -30,6 +30,7 @@ def print_language_options(lang_options: Dict[int, str]) -> None:
     for key, value in lang_options.items():
         print(f'{key}: {value}')
 
+
 def language_input() -> int:
     """
     This function prompts the user for a language choice.
@@ -38,6 +39,7 @@ def language_input() -> int:
     """
     language = input('Please choose a language: ')
     return int(language)
+
 
 def language_choice_is_valid(lang_options: Dict[int, str], lang_choice: int) -> bool:
     """
@@ -54,6 +56,7 @@ def language_choice_is_valid(lang_options: Dict[int, str], lang_choice: int) -> 
         return True
     else:
         return False
+
 
 def get_name_input(name_prompt_options: Dict[int, str], lang_choice: int) -> str:
     """
@@ -102,7 +105,6 @@ def prompt():
 
 
 def admin():
-
     mode2 = input('1: Add Language, 2: Change Language ')
     if mode2 == '1':
         add_language = input('Enter new language: ')
@@ -120,7 +122,10 @@ def admin():
 
     if mode2 == '2':
         print(lang_dict)
-        update = (input('Select number for language to update: '))
+        update = int(input('Select number for language to update: '))
+        update_greeting = input('update greeting: ')
+        greetings_dict[update] = ({ update_greeting})
+        print(greetings_dict)
 
 def user():
     print_language_options(lang_dict)
