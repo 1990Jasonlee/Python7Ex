@@ -91,7 +91,20 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
     print(greetings_options[lang_choice], name)
 
 
-if __name__ == '__main__':
+def prompt():
+    mode = input("'Admin' or 'User' ?")
+    if mode.lower() == 'admin':
+        admin()
+    elif mode.lower() == 'user':
+        user()
+    else:
+        print('Invalid Choice')
+
+def admin():
+    pass
+
+
+def user():
     print_language_options(lang_dict)
     chosen_lang = language_input()
     while language_choice_is_valid(lang_dict, chosen_lang) is False:
@@ -102,20 +115,4 @@ if __name__ == '__main__':
     chosen_name = name_input(selected_prompt)
     greet(chosen_name, greetings_dict, chosen_lang)
 
-
-def prompt():
-    mode = input("'Admin' or 'User' ?")
-    if mode == 'Admin':
-        admin()
-    elif mode == 'User':
-        user()
-    else:
-        print('Invalid Choice')
-
-def admin():
-    pass
-
-
-def user():
-    pass
-
+prompt()
