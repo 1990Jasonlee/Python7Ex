@@ -102,7 +102,18 @@ def prompt():
 
 def admin():
     mode2 = input('1: Add Language or 2: Change Language ')
-    pass
+    add_language = input('Enter new language: ')
+    add_ask = input('Enter "What is your name? " in new language: ')
+    add_greeting = input('Enter "Hello " in new language')
+    new = len(lang_dict) + 1
+
+    new_language = {new:add_language}
+    new_ask = {new:add_ask}
+    new_greeting = {new:add_greeting}
+
+    lang_dict.update(new_language)
+    name_prompt_dict.update(new_ask)
+    greetings_dict.update(new_greeting)
 
 def user():
     print_language_options(lang_dict)
