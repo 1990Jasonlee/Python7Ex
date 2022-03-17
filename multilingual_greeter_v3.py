@@ -4,17 +4,17 @@ from typing import Dict
 # Use integers for keys and strings for values.
 # Example: Key = 1. Value = 'English'.
 lang_dict = {1: 'English', 2: 'Spanish'
-             }
+}
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
 # Example: Key = 1. Value = 'What is your name?'.
 name_prompt_dict = {1: 'What is your name?', 2: '¿Cómo te llamas'
-                    }
+}
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
 # Example: Key = 1. Value = 'Hello'.
-greetings_dict = {1: 'Hello', 2: 'Hola'
-                  }
+greetings_dict = {1: ['Hello', 'Hi', 'Sup'], 2: ['Hola', 'Oye', 'Saludo']
+}
 
 
 def print_language_options(lang_options: Dict[int, str]) -> None:
@@ -126,6 +126,7 @@ def admin():
         update_greeting = input('update greeting: ')
         greetings_dict[update] = ({ update_greeting})
         print(greetings_dict)
+
 
 def user():
     print_language_options(lang_dict)
