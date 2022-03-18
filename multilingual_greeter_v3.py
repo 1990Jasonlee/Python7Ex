@@ -1,3 +1,4 @@
+import random
 from typing import Dict
 
 # Populate this dictionary with at least two languages.
@@ -91,7 +92,9 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
     :param lang_choice: The language the user has chosen.
     :return:
     """
-    print(greetings_options[lang_choice], name)
+    option = greetings_options.get(lang_choice)
+    greet_random = random.choice(option)
+    print(f'{greet_random} {name}')
 
 
 def prompt():
